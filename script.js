@@ -1,16 +1,37 @@
-console.log("Hello World!");
-var num = 10;
-console.log(num);
-console.log(typeof(num));
-num=false;
-console.log(num);
-console.log(typeof(num));
-num="Hello";
-console.log(num);
-console.log(typeof(num));
-num=undefined;
-console.log(num);
-console.log(typeof(num));
-num=null;
-console.log(num);
-console.log(typeof(num));
+let heading = document.getElementById("mainHeading");
+let paragraph = document.getElementById("paragraph");
+let input = document.getElementById("input");
+
+let fontSize = 16;
+
+document.getElementById("changeTextBtn").addEventListener("click", function() {
+    if (input.value !== "") {
+        heading.innerHTML = input.value;
+    }
+});
+
+document.getElementById("bgColorBtn").onclick = function() {
+    document.body.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+};
+
+document.getElementById("fontSizeBtn").addEventListener("click", function() {
+    fontSize += 2;
+    paragraph.style.fontSize = fontSize + "px";
+});
+
+document.getElementById("toggleBtn").addEventListener("click", function() {
+    if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+    } else {
+        paragraph.style.display = "none";
+    }
+});
+
+document.getElementById("resetBtn").addEventListener("click", function() {
+    heading.innerHTML = "Welcome to JavaScript Lab";
+    paragraph.style.display = "block";
+    document.body.style.backgroundColor = "white";
+    fontSize = 16;
+    paragraph.style.fontSize = fontSize + "px";
+    input.value = "";
+});
